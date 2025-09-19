@@ -21,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books/books_create');
+        return view('books/book_create');
     }
 
     /**
@@ -40,7 +40,8 @@ class BookController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $book = Book::find($id);
+        return view('books/book_show', ['book' => $book]);
     }
 
     /**
@@ -48,7 +49,8 @@ class BookController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $book = Book::find($id);
+        return view('books/book_edit', ['book' => $book]);
     }
 
     /**
@@ -56,7 +58,9 @@ class BookController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $book = Book::find($id);
+        $book->update($request->except(['_token', '_method']));
+        return redirect()->route('books.index');
     }
 
     /**
@@ -64,6 +68,8 @@ class BookController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $book = Book::find($id);
+        $book->delete();
+        return redirect()->route('books.index');
     }
 }
