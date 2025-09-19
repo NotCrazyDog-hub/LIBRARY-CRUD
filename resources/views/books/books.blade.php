@@ -10,7 +10,7 @@
     <a href="{{ route('books.create') }}">+ Adicionar livro</a>
     <ul>
         @foreach ($books as $book)
-            <li>{{$book->id}} - "{{$book->title}}" de {{$book->author}} | <a href="{{ route('books.edit', ['book' => $book->id]) }}">Editar</a> | <a href="{{ route('books.show', ['book' => $book->id]) }}">Mostrar</a></li>
+            <li>{{$book->id}} - {{$book->title}} | <a href="{{ route('books.edit', ['book' => $book->id]) }}">Editar</a> | <a href="{{ route('books.show', ['book' => $book->id]) }}">Mostrar</a></li>
         @endforeach
     </ul>
 </body>

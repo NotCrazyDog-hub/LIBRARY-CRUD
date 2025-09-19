@@ -9,7 +9,7 @@
     <h1>Edição de livros</h1>
     <form action="{{ route('books.update', ['book' => $book->id]) }}" method="post">
         @csrf
-        <input type="hidden" name="_method" value="put">
+        @method('put')
         <input type="text" name="title" value="{{ $book->title }}">
         <br>
         <input type="text" name="author" value="{{ $book->author }}">
