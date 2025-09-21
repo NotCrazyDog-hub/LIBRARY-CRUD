@@ -11,7 +11,7 @@
     <form action="{{ route('books.destroy', ['book' => $book->id]) }}" method="post">
         @csrf
         @method('delete')
-        <input type="submit" value="Deletar livro">
+        <input type="submit" onclick="return confirm('Tem certeza que deseja deletar esse livro do seu catálogo?')" value="Deletar livro">
     </form>
 </body>
 </html>
